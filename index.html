@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클린스페이스 - 전문 청소 서비스</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>🧹 클린스페이스</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#services">서비스</a></li>
+                <li><a href="#about">회사소개</a></li>
+                <li><a href="#pricing">가격안내</a></li>
+                <li><a href="#contact">문의하기</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">깨끗한 공간, 행복한 일상</h1>
+            <p class="hero-subtitle">전문 청소 서비스로 당신의 공간을 새롭게</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">무료 견적 받기</a>
+                <a href="#services" class="btn btn-secondary">서비스 보기</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h3>10,000+</h3>
+                <p>만족한 고객</p>
+            </div>
+            <div class="stat-item">
+                <h3>15년</h3>
+                <p>업계 경력</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>재이용률</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">우리의 서비스</h2>
+            <p class="section-subtitle">최고의 청소 전문가들이 제공하는 맞춤형 서비스</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>가정집 청소</h3>
+                    <p>집안 구석구석을 깨끗하게 청소해드립니다. 일반청소부터 입주청소까지 전문적인 서비스를 제공합니다.</p>
+                    <ul class="service-features">
+                        <li>거실, 주방, 화장실 청소</li>
+                        <li>창문 및 베란다 청소</li>
+                        <li>바닥 왁싱 및 광택</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>사무실 청소</h3>
+                    <p>쾌적한 업무환경을 위한 사무실 전문 청소 서비스입니다. 정기 계약으로 더욱 저렴하게 이용 가능합니다.</p>
+                    <ul class="service-features">
+                        <li>사무 공간 정리 및 청소</li>
+                        <li>회의실 및 휴게실 관리</li>
+                        <li>정기 청소 계약 가능</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>입주/이사 청소</h3>
+                    <p>이사 전후 완벽한 청소로 새 출발을 도와드립니다. 전문 장비로 깔끔하게 마무리합니다.</p>
+                    <ul class="service-features">
+                        <li>신축 및 리모델링 청소</li>
+                        <li>입주 전 완벽 청소</li>
+                        <li>이사 청소 패키지</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🧽</div>
+                    <h3>특수 청소</h3>
+                    <p>일반 청소로 해결되지 않는 특수한 상황을 위한 전문 청소 서비스입니다.</p>
+                    <ul class="service-features">
+                        <li>곰팡이 제거 및 방역</li>
+                        <li>대형 청소 프로젝트</li>
+                        <li>산업 시설 청소</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3>유리창 청소</h3>
+                    <p>고층 건물 유리창부터 일반 주택 창문까지 안전하고 깨끗하게 청소합니다.</p>
+                    <ul class="service-features">
+                        <li>고층 건물 외벽 청소</li>
+                        <li>주택 창문 청소</li>
+                        <li>유리 코팅 서비스</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛋️</div>
+                    <h3>가구/소파 청소</h3>
+                    <p>전문 장비로 가구와 소파를 새것처럼 깨끗하게 만들어드립니다.</p>
+                    <ul class="service-features">
+                        <li>소파 및 카펫 청소</li>
+                        <li>침대 및 매트리스 청소</li>
+                        <li>가죽 제품 관리</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">클린스페이스를 선택해야 하는 이유</h2>
+                    <p class="about-description">
+                        저희 클린스페이스는 15년간 축적된 전문 노하우와 최첨단 청소 장비를 바탕으로 
+                        최상의 청소 서비스를 제공합니다. 고객 만족을 최우선으로 생각하며, 
+                        철저한 교육을 받은 전문 인력이 안전하고 꼼꼼하게 작업합니다.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <h4>✓ 전문 인력</h4>
+                            <p>체계적인 교육과 자격증을 갖춘 전문가</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>✓ 친환경 세제</h4>
+                            <p>인체에 무해한 친환경 세제 사용</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>✓ 최신 장비</h4>
+                            <p>전문 청소 장비로 완벽한 마무리</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>✓ 손해배상보험</h4>
+                            <p>만일의 사고에 대비한 보험 가입</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <p>👥</p>
+                        <p>전문 청소팀</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">가격 안내</h2>
+            <p class="section-subtitle">합리적인 가격으로 최고의 서비스를 제공합니다</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">가정집 청소</h3>
+                    <div class="pricing-price">
+                        <span class="price">120,000원~</span>
+                        <span class="period">/ 20평 기준</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>거실, 주방, 화장실 청소</li>
+                        <li>창문 및 베란다 청소</li>
+                        <li>바닥 청소 및 정리</li>
+                        <li>2~3시간 소요</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">견적 문의</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge">인기</div>
+                    <h3 class="pricing-title">입주 청소</h3>
+                    <div class="pricing-price">
+                        <span class="price">250,000원~</span>
+                        <span class="period">/ 20평 기준</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>전체 공간 완벽 청소</li>
+                        <li>창호, 새시 청소</li>
+                        <li>바닥 왁스 및 광택</li>
+                        <li>곰팡이 제거 포함</li>
+                        <li>4~6시간 소요</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">견적 문의</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="pricing-title">사무실 청소</h3>
+                    <div class="pricing-price">
+                        <span class="price">문의</span>
+                        <span class="period">/ 정기 계약 가능</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>사무 공간 정리 및 청소</li>
+                        <li>회의실 관리</li>
+                        <li>화장실 청소</li>
+                        <li>정기 계약 할인</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">견적 문의</a>
+                </div>
+            </div>
+
+            <div class="pricing-note">
+                <p>* 실제 가격은 평수와 청소 범위에 따라 달라질 수 있습니다.</p>
+                <p>* 정기 계약 시 최대 20% 할인 혜택을 받으실 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">이용 절차</h2>
+            <p class="section-subtitle">간단한 절차로 편리하게 이용하세요</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>상담 신청</h3>
+                    <p>전화 또는 온라인으로 상담을 신청합니다</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>견적 확인</h3>
+                    <p>무료 방문 견적 또는 전화 상담</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>일정 조율</h3>
+                    <p>편리한 시간에 예약</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>청소 진행</h3>
+                    <p>전문가가 방문하여 청소 진행</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">문의하기</h2>
+            <p class="section-subtitle">궁금한 사항이 있으시면 언제든지 연락주세요</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>📞 전화 문의</h3>
+                        <p class="info-value">1588-1234</p>
+                        <p class="info-detail">평일 09:00 - 18:00</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>📱 카카오톡</h3>
+                        <p class="info-value">@클린스페이스</p>
+                        <p class="info-detail">24시간 상담 가능</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>✉️ 이메일</h3>
+                        <p class="info-value">info@cleanspace.kr</p>
+                        <p class="info-detail">24시간 이내 답변</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>📍 오시는 길</h3>
+                        <p class="info-value">서울시 강남구 테헤란로 123</p>
+                        <p class="info-detail">클린스페이스 빌딩 3층</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="inquiryForm">
+                        <div class="form-group">
+                            <label for="name">이름 *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">연락처 *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">서비스 종류 *</label>
+                            <select id="service" name="service" required>
+                                <option value="">선택해주세요</option>
+                                <option value="가정집">가정집 청소</option>
+                                <option value="사무실">사무실 청소</option>
+                                <option value="입주">입주/이사 청소</option>
+                                <option value="특수">특수 청소</option>
+                                <option value="유리창">유리창 청소</option>
+                                <option value="가구">가구/소파 청소</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">문의 내용 *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">상담 신청하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>클린스페이스</h3>
+                    <p>믿을 수 있는 전문 청소 서비스</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>서비스</h4>
+                    <ul>
+                        <li><a href="#services">가정집 청소</a></li>
+                        <li><a href="#services">사무실 청소</a></li>
+                        <li><a href="#services">입주/이사 청소</a></li>
+                        <li><a href="#services">특수 청소</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>회사</h4>
+                    <ul>
+                        <li><a href="#about">회사소개</a></li>
+                        <li><a href="#pricing">가격안내</a></li>
+                        <li><a href="#contact">문의하기</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>고객센터</h4>
+                    <p>📞 1588-1234</p>
+                    <p>📧 info@cleanspace.kr</p>
+                    <p>평일 09:00 - 18:00</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 클린스페이스. All rights reserved.</p>
+                <p>사업자등록번호: 123-45-67890 | 대표: 홍길동</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
