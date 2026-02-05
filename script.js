@@ -3,6 +3,9 @@ const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu li');
 
+// Constants for swipe detection
+const SWIPE_THRESHOLD_PX = 50;
+
 burger.addEventListener('click', () => {
     // Toggle Nav
     nav.classList.toggle('active');
@@ -40,31 +43,33 @@ document.addEventListener('click', (e) => {
 });
 
 // Close mobile menu on horizontal swipe (right swipe gesture)
-let touchStartX = 0;
-let touchStartY = 0;
-let touchEndX = 0;
-let touchEndY = 0;
+// Encapsulate touch state to prevent race conditions
+const touchState = {
+    startX: 0,
+    startY: 0,
+    endX: 0,
+    endY: 0
+};
 
 document.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
+    touchState.startX = e.changedTouches[0].screenX;
+    touchState.startY = e.changedTouches[0].screenY;
 }, { passive: true });
 
 document.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
+    touchState.endX = e.changedTouches[0].screenX;
+    touchState.endY = e.changedTouches[0].screenY;
     handleSwipe();
 }, { passive: true });
 
 function handleSwipe() {
-    const swipeThreshold = 50; // Minimum distance for swipe
-    const deltaX = touchEndX - touchStartX;
-    const deltaY = touchEndY - touchStartY;
+    const deltaX = touchState.endX - touchState.startX;
+    const deltaY = touchState.endY - touchState.startY;
     
     // Check if it's a horizontal swipe (more horizontal than vertical movement)
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
         // Right swipe detected and menu is open
-        if (deltaX > swipeThreshold && nav.classList.contains('active')) {
+        if (deltaX > SWIPE_THRESHOLD_PX && nav.classList.contains('active')) {
             nav.classList.remove('active');
             burger.classList.remove('toggle');
         }
