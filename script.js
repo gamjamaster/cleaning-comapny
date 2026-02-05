@@ -3,6 +3,9 @@ const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu li');
 
+// Constants for swipe detection
+const SWIPE_THRESHOLD_PX = 50;
+
 burger.addEventListener('click', () => {
     // Toggle Nav
     nav.classList.toggle('active');
@@ -27,6 +30,51 @@ navLinks.forEach(link => {
         burger.classList.remove('toggle');
     });
 });
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    const isClickInsideNav = nav.contains(e.target);
+    const isClickOnBurger = burger.contains(e.target);
+    
+    if (!isClickInsideNav && !isClickOnBurger && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        burger.classList.remove('toggle');
+    }
+});
+
+// Close mobile menu on horizontal swipe (right swipe gesture)
+// Encapsulate touch state to prevent race conditions
+const touchState = {
+    startX: 0,
+    startY: 0,
+    endX: 0,
+    endY: 0
+};
+
+document.addEventListener('touchstart', (e) => {
+    touchState.startX = e.changedTouches[0].screenX;
+    touchState.startY = e.changedTouches[0].screenY;
+}, { passive: true });
+
+document.addEventListener('touchend', (e) => {
+    touchState.endX = e.changedTouches[0].screenX;
+    touchState.endY = e.changedTouches[0].screenY;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    const deltaX = touchState.endX - touchState.startX;
+    const deltaY = touchState.endY - touchState.startY;
+    
+    // Check if it's a horizontal swipe (more horizontal than vertical movement)
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Right swipe detected and menu is open
+        if (deltaX > SWIPE_THRESHOLD_PX && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            burger.classList.remove('toggle');
+        }
+    }
+}
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
