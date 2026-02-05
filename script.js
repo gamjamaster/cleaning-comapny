@@ -28,6 +28,49 @@ navLinks.forEach(link => {
     });
 });
 
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    const isClickInsideNav = nav.contains(e.target);
+    const isClickOnBurger = burger.contains(e.target);
+    
+    if (!isClickInsideNav && !isClickOnBurger && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        burger.classList.remove('toggle');
+    }
+});
+
+// Close mobile menu on horizontal swipe (right swipe gesture)
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+}, { passive: true });
+
+document.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    const swipeThreshold = 50; // Minimum distance for swipe
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    
+    // Check if it's a horizontal swipe (more horizontal than vertical movement)
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Right swipe detected and menu is open
+        if (deltaX > swipeThreshold && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            burger.classList.remove('toggle');
+        }
+    }
+}
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
