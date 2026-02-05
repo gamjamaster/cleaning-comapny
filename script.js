@@ -113,10 +113,11 @@ const handleScroll = throttle(() => {
     // Navbar hide/show logic
     if (currentScroll <= 0) {
         navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        navbar.style.transform = 'translateY(0)';
     } else if (currentScroll > lastScroll && currentScroll > 100) {
         // Scrolling down
         navbar.style.transform = 'translateY(-100%)';
-    } else {
+    } else if (currentScroll < lastScroll) {
         // Scrolling up
         navbar.style.transform = 'translateY(0)';
         navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
