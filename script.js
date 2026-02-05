@@ -68,7 +68,7 @@ inquiryForm.addEventListener('submit', (e) => {
     inquiryForm.reset();
 });
 
-// Add scroll animation to elements
+// Add scroll animation to elements using CSS animation classes
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -77,8 +77,7 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animate-in');
         }
     });
 }, observerOptions);
@@ -87,26 +86,34 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.service-card, .pricing-card, .info-item, .step');
     animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
     });
 });
 
-// Navbar scroll effect
+// Throttle function for performance optimization
+function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Combined scroll handler with throttling
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
-window.addEventListener('scroll', () => {
+const handleScroll = throttle(() => {
     const currentScroll = window.pageYOffset;
     
+    // Navbar hide/show logic
     if (currentScroll <= 0) {
         navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        return;
-    }
-    
-    if (currentScroll > lastScroll && currentScroll > 100) {
+    } else if (currentScroll > lastScroll && currentScroll > 100) {
         // Scrolling down
         navbar.style.transform = 'translateY(-100%)';
     } else {
@@ -114,9 +121,28 @@ window.addEventListener('scroll', () => {
         navbar.style.transform = 'translateY(0)';
         navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
     }
-    
     lastScroll = currentScroll;
-});
+    
+    // Active navigation highlighting
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
+        
+        if (currentScroll > sectionTop && currentScroll <= sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.style.color = '';
+            });
+            if (navLink) {
+                navLink.style.color = 'var(--primary-color)';
+            }
+        }
+    });
+}, 100);
+
+window.addEventListener('scroll', handleScroll);
 
 // Add transition to navbar
 navbar.style.transition = 'transform 0.3s ease-in-out';
@@ -138,28 +164,6 @@ phoneInput.addEventListener('input', (e) => {
     }
     
     e.target.value = value;
-});
-
-// Add active class to current nav item based on scroll position
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.pageYOffset;
-    
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-menu a[href="#${sectionId}"]`);
-        
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.style.color = '';
-            });
-            if (navLink) {
-                navLink.style.color = 'var(--primary-color)';
-            }
-        }
-    });
 });
 
 // Add CSS animation keyframes dynamically
